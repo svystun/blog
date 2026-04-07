@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Tag;
+use Illuminate\Database\Seeder;
 
 class TagsTableSeeder extends Seeder
 {
@@ -14,6 +14,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tag::class, 5)->create();
+        //factory(Tag::class, 5)->create();
+		Tag::factory()->count(5)->create();
     }
 }

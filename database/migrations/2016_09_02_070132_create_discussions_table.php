@@ -15,8 +15,8 @@ class CreateDiscussionsTable extends Migration
     {
         Schema::create('discussions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('last_user_id');
+			$table->foreignId('user_id')->nullable()->constrained('users');
+			$table->foreignId('last_user_id')->nullable()->constrained('users');
             $table->string('title');
             // $table->json('content');
             $table->text('content');

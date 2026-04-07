@@ -13,10 +13,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable, SoftDeletes, FollowTrait, Voter, HasRoles, Filterable;
+    use HasApiTokens, Notifiable, SoftDeletes, FollowTrait, Voter, HasRoles, Filterable, HasFactory;
 
     /**
      * The attributes that should be mutated to dates.
@@ -31,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+		'name',
         'email',
         'is_admin',
         'avatar',

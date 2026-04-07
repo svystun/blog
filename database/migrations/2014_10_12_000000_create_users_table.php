@@ -15,14 +15,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
+            $table->string('name')->unique()->nullable();
             $table->string('nickname')->nullable();
             $table->text('avatar')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('confirm_code', 64)->unique()->nullable();
             $table->tinyInteger('status')->default(false);
             $table->boolean('is_admin')->default(false);
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('github_id')->nullable();
             $table->string('github_name')->nullable();
             $table->string('github_url')->nullable();

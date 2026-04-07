@@ -4,10 +4,11 @@ namespace App;
 
 use App\Scopes\StatusScope;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Link extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasFactory;
 
     /**
      * The attributes that should be mutated to dates.

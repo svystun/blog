@@ -6,10 +6,11 @@ use App\Tools\Markdowner;
 use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jcc\LaravelVote\Traits\Votable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
-    use SoftDeletes, Votable, BelongsToUser;
+    use SoftDeletes, Votable, BelongsToUser, HasFactory;
 
     protected $vote = User::class;
 

@@ -15,14 +15,13 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('last_user_id');
-            $table->string('slug')->unique();
-            $table->string('title');
-            $table->string('subtitle');
-            // $table->json('content');
-            $table->longText('content');
+			$table->foreignId('category_id')->nullable()->constrained('categories');
+			$table->foreignId('user_id')->nullable()->constrained('users');
+			$table->foreignId('last_user_id')->nullable()->constrained('users');
+            $table->string('slug')->unique()->nullable();
+            $table->string('title')->default('');
+            $table->string('subtitle')->default('');
+            $table->longText('content')->nullable();
             $table->string('page_image')->nullable();
             $table->string('meta_description')->nullable();
             $table->boolean('is_original')->default(false);

@@ -9,10 +9,11 @@ use App\Traits\HasComments;
 use App\Traits\HasTags;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
-    use SoftDeletes, BelongsToUser, HasComments, HasTags;
+    use SoftDeletes, BelongsToUser, HasComments, HasTags, HasFactory;
 
     /**
      * The attributes that should be mutated to dates.
